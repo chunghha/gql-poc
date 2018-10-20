@@ -1,1 +1,2 @@
-![Playground](./playground.png)
+![playground](./pictures/playground.png)
+![variables](./pictures/variables.png)

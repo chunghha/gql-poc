@@ -1,36 +1,10 @@
-import { ApolloServer, gql } from 'apollo-server';
+import { ApolloServer } from 'apollo-server';
 
-import { CountryAPI } from './country-datasource';
+import { CountryAPI } from './datasources/country-datasource';
+import { resolvers } from './resolvers';
+import { typeDefs } from './typeDefs';
 
-// Type definitions define the "shape" of your data and specify
-// which ways the data can be fetched from the GraphQL server.
-const typeDefs = gql`
-  # Comments in GraphQL are defined with the hash (#) symbol.
 
-  # This "Country" type can be used in other type declarations.
-  type Country {
-    name: String
-    capital: String
-    subregion: String
-    flag: String
-    population: Int
-  }
-
-  # The "Query" type is the root of all GraphQL queries.
-  # (A "Mutation" type will be covered later on.)
-  type Query {
-    countries: [Country!]!
-  }
-`;
-
-const resolvers = {
-    Query: {
-        // passing _ and __  is silly to make this code work
-        countries: async (_, __, { dataSources : { countryAPI } }) => {
-            return countryAPI.getCountries();
-        }
-    }
-};
 
 // In the most basic sense, the ApolloServer can be started
 // by passing type definitions (typeDefs) and the resolvers
