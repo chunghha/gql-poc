@@ -1,4 +1,14 @@
 {
+    "extends": [
+        "tslint:latest",
+        "tslint-config-prettier"
+    ],
+    "plugins": [
+        "tslint-plugin-prettier"
+    ],
+    "rulesDirectory": [
+        "tslint-plugin-prettier"
+    ],
     "rules": {
         "class-name": true,
         "no-var-keyword": true,
@@ -8,9 +18,5 @@
         "jsdoc-format": true,
         "no-console": [false, "log"],
         "no-any": false
-    },
-    "extends": [
-        "tslint:latest",
-        "tslint-config-prettier"
-    ]
+    }
 }
