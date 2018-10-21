@@ -24,10 +24,18 @@ export const typeDefs = gql`
     currencies: [Currency]
   }
 
+  # ExchangeRate type
+  type ExchangeRate {
+    date: String
+    #rates: badly designed type from the service 
+    base: String!
+  }
+
   # The "Query" type is the root of all GraphQL queries.
   # (A "Mutation" type will be covered later on.)
   type Query {
     byName(name: String!): [Country]
     countries: [Country!]!
+    exchangeRate(base: String!): ExchangeRate
   }
 `;

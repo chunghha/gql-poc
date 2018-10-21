@@ -1,6 +1,7 @@
 import { ApolloServer } from 'apollo-server';
 
 import { CountryAPI } from './datasources/country-datasource';
+import { ExchangeAPI } from './datasources/exchange-datasource';
 import { resolvers } from './resolvers';
 import { typeDefs } from './typeDefs';
 
@@ -12,6 +13,7 @@ import { typeDefs } from './typeDefs';
 const server = new ApolloServer({
     dataSources: () => ({
         countryAPI: new CountryAPI(),
+        exchangeAPI: new ExchangeAPI()
     }),
     resolvers,
     typeDefs
