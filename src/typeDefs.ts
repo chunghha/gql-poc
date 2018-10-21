@@ -5,13 +5,23 @@ import { gql } from 'apollo-server';
 export const typeDefs = gql`
   # Comments in GraphQL are defined with the hash (#) symbol.
 
+  # Currency type
+  type Currency {
+    code: String
+    name: String
+    symbol: String
+  }
+
   # This "Country" type can be used in other type declarations.
   type Country {
     name: String
     capital: String
+    region: String
     subregion: String
     flag: String
     population: Int
+    latlng: [Int]
+    currencies: [Currency]
   }
 
   # The "Query" type is the root of all GraphQL queries.
