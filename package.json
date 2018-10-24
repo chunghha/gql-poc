@@ -5,8 +5,8 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "nodemon --watch src && tslint-check",
-    "start": "nodemon ./src/server.ts",
-    "start:prod": "nodemon ./dist/server.js",
+    "start": "nodemon ./src/server.ts | pino",
+    "start:prod": "nodemon ./dist/server.js | pino",
     "build": "tsc",
     "run:prod": "yarn build && yarn tslint && yarn start:prod",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
@@ -17,12 +17,17 @@
   "dependencies": {
     "apollo-datasource": "^0.1.3",
     "apollo-datasource-rest": "~0.1.5",
-    "apollo-server": "~2.1.0",
+    "apollo-server": "^2.1.0",
+    "apollo-server-koa": "^2.1.0",
     "graphql": "~14.0.2",
-    "graphql-tools": "~4.0.2"
+    "graphql-tools": "~4.0.2",
+    "koa": "^2.6.1",
+    "koa-pino-logger": "^2.1.3"
   },
   "devDependencies": {
     "@types/graphql": "~14.0.3",
+    "@types/koa": "^2.0.46",
+    "@types/koa-pino-logger": "^2.1.2",
     "@types/node": "~10.12.0",
     "nodemon": "~1.18.4",
     "prettier": "~1.14.3",
