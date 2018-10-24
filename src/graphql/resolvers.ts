@@ -1,4 +1,6 @@
-export const resolvers = {
+import { IResolvers } from "graphql-tools";
+
+export const resolvers: IResolvers = {
     Query: {
         byName: async (_, { name }, { dataSources : { countryAPI } }) => {
             return countryAPI.getCountriesByName(name);

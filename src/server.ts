@@ -5,11 +5,11 @@ import * as logger from 'koa-pino-logger';
 
 import { CountryAPI } from './datasources/country-datasource';
 import { ExchangeAPI } from './datasources/exchange-datasource';
-import { resolvers } from './resolvers';
-import { typeDefs } from './typeDefs';
+import schema from './graphql';
 
 const app = new Koa();
 app.use(logger());
+
 const PORT = process.env.PORT || 4000;
 
 const server = new ApolloServer({
@@ -17,10 +17,8 @@ const server = new ApolloServer({
         countryAPI: new CountryAPI(),
         exchangeAPI: new ExchangeAPI()
     }),
-    resolvers,
-    typeDefs
+    schema
 });
-
 server.applyMiddleware({ app });
 
 app.listen(PORT, () => {
