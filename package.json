@@ -5,6 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "nodemon --watch src && tslint-check",
+    "debug": "DEBUG=* yarn start",
     "start": "nodemon ./src/server.ts | pino",
     "start:prod": "nodemon ./dist/server.js | pino-tee > api.log",
     "build": "tsc",
@@ -19,12 +20,14 @@
     "apollo-datasource-rest": "~0.1.5",
     "apollo-server": "^2.1.0",
     "apollo-server-koa": "^2.1.0",
+    "debug": "^4.1.0",
     "graphql": "~14.0.2",
     "graphql-tools": "~4.0.2",
     "koa": "^2.6.1",
     "koa-pino-logger": "^2.1.3"
   },
   "devDependencies": {
+    "@types/debug": "^0.0.31",
     "@types/koa": "^2.0.46",
     "@types/koa-pino-logger": "^2.1.2",
     "@types/node": "~10.12.0",
