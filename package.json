@@ -7,7 +7,7 @@
     "dev": "nodemon --watch src && tslint-check",
     "debug": "DEBUG=* yarn start",
     "start": "nodemon ./src/server.ts | pino",
-    "start:prod": "nodemon ./dist/server.js | pino-tee > api.log",
+    "start:prod": "pm2 start ./dist/server.js",
     "build": "tsc",
     "run:prod": "yarn build && yarn tslint && yarn start:prod",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
