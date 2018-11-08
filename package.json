@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@types/debug": "^0.0.31",
+    "@types/graphql": "^14.0.3",
     "@types/koa": "^2.0.46",
     "@types/koa-pino-logger": "^2.1.2",
     "@types/node": "~10.12.3",
