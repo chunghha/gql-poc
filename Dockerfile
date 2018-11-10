@@ -1,5 +1,9 @@
 FROM keymetrics/pm2:latest-alpine
 
+# Create own api folder
+RUN mkdir -p /api
+WORKDIR /api
+
 # Bundle APP files
 COPY src src/
 COPY package.json .
