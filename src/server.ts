@@ -17,14 +17,14 @@ debug('process.env.PORT %s', process.env.PORT);
 const PORT = process.env.PORT || 4000;
 
 const server = new ApolloServer({
-    dataSources: () => ({
-        countryAPI: new CountryAPI(),
-        exchangeAPI: new ExchangeAPI()
-    }),
-    schema
+  dataSources: () => ({
+    countryAPI: new CountryAPI(),
+    exchangeAPI: new ExchangeAPI()
+  }),
+  schema
 });
 server.applyMiddleware({ app });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
-})
+  console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
+});
